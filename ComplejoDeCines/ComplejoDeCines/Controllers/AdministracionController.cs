@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace ComplejoDeCines.Controllers
 {
-    public class HomeController : Controller
+    public class AdministracionController : Controller
     {
-        // GET: Home
+        // GET: Administracion
         public ActionResult Index()
         {
             return View();
