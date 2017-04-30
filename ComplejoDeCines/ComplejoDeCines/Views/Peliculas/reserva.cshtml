@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "inicio";
+    Layout = "~/Views/Shared/_EstructuraVistaWeb.cshtml";
+}
+
+@section title  {
+    <title>Reserva tu película</title>
+}
+@section body
+    {
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <div class="page-header">
+                    <h3>Reserva en proceso</h3>
+                </div>
+
+                <form action="~/Views/Home/inicio" method="post">
+                    <p>aca irìa la informacion de la reserva y tambien la informacion de la confirmacion o se puede armar una vista nueva</p>
+                    
+                </form>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+}
+
+
+

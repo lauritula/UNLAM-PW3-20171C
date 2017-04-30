@@ -212,6 +212,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\js\codigojs.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -263,12 +264,19 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_EstructuraVistaWeb.cshtml" />
+    <Content Include="Views\Home\inicio.cshtml" />
+    <Content Include="Views\Administracion\inicio.cshtml" />
+    <Content Include="Views\Administracion\menuPrincipal.cshtml" />
+    <Content Include="Views\Administracion\peliculas.cshtml" />
+    <Content Include="Views\Administracion\carteleras.cshtml" />
+    <Content Include="Views\Administracion\sedes.cshtml" />
+    <Content Include="Views\Administracion\reportes.cshtml" />
+    <Content Include="Views\Peliculas\reserva.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Administracion\" />
-    <Folder Include="Views\Home\" />
-    <Folder Include="Views\Peliculas\" />
+    <Folder Include="Content\css\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -21,6 +21,8 @@
 
 /*! normalize.css v2.1.0 | MIT License | git.io/normalize */
 
+
+
 article,
 aside,
 details,
@@ -35,6 +37,7 @@ section,
 summary {
   display: block;
 }
+
 
 audio,
 canvas,
@@ -761,6 +764,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  height:100%;
 }
 
 .container:before,

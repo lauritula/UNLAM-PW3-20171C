@@ -13,5 +13,9 @@ namespace ComplejoDeCines.Controllers
         {
             return View();
         }
+        public ActionResult reserva()
+        {
+            return View();
+        }
     }
 }

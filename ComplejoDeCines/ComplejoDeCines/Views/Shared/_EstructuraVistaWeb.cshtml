@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @RenderSection("title")  
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/estilos.css" rel="stylesheet" type="text/css" />
+    <script src="~/Content/js/codigojs.js" language="Javascript"></script>
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <p class="navbar-text">Complejo de cines</p>
+</div>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "inicio", "Home", null, null)</li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Login Administrador", "inicio", "Administracion", null, null)</li>
+            </ul>
+        </div>
+    </nav>
+       @RenderSection("body") 
+</body>
+</html>
+
+
