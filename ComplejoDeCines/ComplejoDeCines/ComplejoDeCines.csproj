@@ -273,6 +273,12 @@
     <Content Include="Views\Administracion\sedes.cshtml" />
     <Content Include="Views\Administracion\reportes.cshtml" />
     <Content Include="Views\Peliculas\reserva.cshtml" />
+    <Content Include="Views\Administracion\crearSede.cshtml" />
+    <Content Include="Views\Administracion\modificarSede.cshtml" />
+    <Content Include="Views\Administracion\crearCartelera.cshtml" />
+    <Content Include="Views\Administracion\eliminarCartelera.cshtml" />
+    <Content Include="Views\Administracion\modificarCartelera.cshtml" />
+    <Content Include="Views\Administracion\crearPelicula.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

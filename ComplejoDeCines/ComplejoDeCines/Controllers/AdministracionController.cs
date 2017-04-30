@@ -22,7 +22,19 @@ namespace ComplejoDeCines.Controllers
         {
             return View();
         }
+        public ActionResult crearPelicula()
+        {
+            return View();
+        }
         public ActionResult sedes()
+        {
+            return View();
+        }
+        public ActionResult crearSede()
+        {
+            return View();
+        }
+        public ActionResult modificarSede()
         {
             return View();
         }
@@ -31,6 +43,18 @@ namespace ComplejoDeCines.Controllers
             return View();
         }
         public ActionResult carteleras()
+        {
+            return View();
+        }
+        public ActionResult crearCartelera()
+        {
+            return View();
+        }
+        public ActionResult modificarCartelera()
+        {
+            return View();
+        }
+        public ActionResult eliminarCartelera()
         {
             return View();
         }

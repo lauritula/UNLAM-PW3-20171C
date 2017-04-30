@@ -17,7 +17,13 @@
                     <h3>Gestión de carteleras</h3>
                 </div>
 
-                <form action="~/Views/Administracion/carteleras" method="post"></form>
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active"><a href="#">Seleccione una opcion</a></li>
+                    <li>@Html.ActionLink("Nueva cartelera", "crearCartelera", "Administracion", null, null)</li>
+                    <li>@Html.ActionLink("Modificar cartelera", "modificarCartelera", "Administracion", null, null)</li>
+                    <li>@Html.ActionLink("Eliminar cartelera", "eliminarCartelera", "Administracion", null, null)</li>
+
+                </ul>
             </div>
             <div class="col-sm-1"></div>
         </div>
