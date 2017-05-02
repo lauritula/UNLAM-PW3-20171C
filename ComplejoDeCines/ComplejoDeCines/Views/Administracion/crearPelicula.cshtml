@@ -14,13 +14,76 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
                 <div class="page-header">
-                    <h3>Nueva Película</h3>
+                    <h3>Información de nueva película</h3>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="Nombre">Nombre</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="Nombre" placeholder="Ingrese nombre de película " name="nombre">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="Descripción">Descripción</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="Descripción" placeholder="Ingrese Descripción de película" name="Descripción">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="Clasificación">Clasificación</label>
+                            <div class="col-sm-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" name="clasificacion">
+                                        Seleccione una opción
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">traer datos de lista</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="Género">Género</label>
+                            <div class="col-sm-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" name="genero">
+                                        Seleccione una opción
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">traer datos de lista</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="Imagen">Imagen</label>
+                            <div class="col-sm-4">
+                                <input type="file" hidden>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="Duracion">Duración</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="Duracion" placeholder="Ingrese Duración de película" name="Duración">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="buttons"></label>
+                            <button type="button" onclick="location.href='@Url.Action("inicio", "Home")'" class="btn btn-default">Listar películas</button>
+
+                            <div class="col-sm-2">
+                                <button type="button" onclick="location.href='@Url.Action("crearPelicula", "Administracion")'" class="btn btn-default">Agregar película</button>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
+
             </div>
             <div class="col-sm-1"></div>
         </div>
     </div>
 }
-
 
 

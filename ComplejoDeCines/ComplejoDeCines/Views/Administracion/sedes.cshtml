@@ -16,12 +16,14 @@
                 <div class="page-header">
                     <h3>Gestión de sedes</h3>
                 </div>
+                Acà iria la lista de sedes y debajo se puede modificar y agregar
                     <ul class="nav nav-pills nav-stacked">
                         <li class="active"><a href="#">Seleccione una opcion</a></li>
                         <li>@Html.ActionLink("Nueva sede", "crearSede", "Administracion", null, null)</li>
                         <li>@Html.ActionLink("Modificar sede", "modificarSede", "Administracion", null, null)</li>
-                   
                     </ul>
+                <button type="button" onclick="location.href='@Url.Action("menuPrincipal", "Administracion")'" class="btn btn-default">Volver</button>
+
             </div>
             <div class="col-sm-1"></div>
         </div>
