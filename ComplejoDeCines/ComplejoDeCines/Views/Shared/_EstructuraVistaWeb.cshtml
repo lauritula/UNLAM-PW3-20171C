@@ -20,6 +20,7 @@
 </head>
 
 <body>
+  
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -33,7 +34,17 @@
             </ul>
         </div>
     </nav>
-       @RenderSection("body") 
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                @RenderSection("header")
+                @RenderSection("body")
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+       
 </body>
 </html>
 

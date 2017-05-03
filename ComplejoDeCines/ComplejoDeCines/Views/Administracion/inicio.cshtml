@@ -7,15 +7,14 @@
 @section title  {
     <title>Administracion</title>
 }
+@section header
+{
+<div class="page-header">
+    <h3>Bienvenido administrador</h3>
+</div>
+}
 @section body
     {
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-10">
-                <div class="page-header">
-                   <h3>Bienvenido administrador</h3>
-                </div>
                 <form class="form-horizontal" action="~/Views/Administracion/inicio" method="post">
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="email">Usuario:</label>
@@ -35,11 +34,6 @@
                         </div>
                     </div>
                 </form>
-                
-            </div>
-            <div class="col-sm-1"></div>
-        </div>
-    </div>
 }
 
 

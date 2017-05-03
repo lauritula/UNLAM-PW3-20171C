@@ -7,26 +7,89 @@
 @section title  {
     <title>Reserva tu película</title>
 }
+@section header
+            {
+    <div class="page-header">
+        <h3>Reserva en proceso</h3>
+    </div>
+}
 @section body
     {
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-10">
-                <div class="page-header">
-                    <h3>Reserva en proceso</h3>
-                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="version">Película elegida</label>
+                        <div class="col-sm-4">
+                            <p>imagen</p>
+                            <p>genero</p>
+                            <p>clasificacion</p>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="version">Versión</label>
+                            <div class="col-sm-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" name="version">
+                                        Seleccione una opción
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">traer datos de lista</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="sede">Sede</label>
+                            <div class="col-sm-4">
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" name="sede">
+                                        Seleccione una opción
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">traer datos de lista</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="dia">Día</label>
+                        <div class="col-sm-4">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" name="dia">
+                                    Seleccione una dia
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">traer datos de lista</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="hora">Hora</label>
+                        <div class="col-sm-4">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" name="sede">
+                                    Seleccione una opción
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">traer datos de lista</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <label class="control-label col-sm-2" for="buttons"></label>
+                            <button type="button" onclick="location.href='@Url.Action("inicio", "Home")'" class="btn btn-default">Volver</button>
 
-                <form action="~/Views/Home/inicio" method="post">
-                    <p>aca irìa la informacion de la reserva y tambien la informacion de la confirmacion o se puede armar una vista nueva</p>
-                    
-                </form>
-                <button type="button" onclick="location.href='@Url.Action("inicio", "Home")'" class="btn btn-default">Volver</button>
+                            <div class="col-sm-2">
+                                <button type="button" onclick="location.href='@Url.Action("confirmacion", "Peliculas")'" class="btn btn-default">Confirmar reserva</button>
+                            </div>
+                        </div>
+</form>
 
-            </div>
-            <div class="col-sm-1"></div>
-        </div>
-    </div>
 }
 
 

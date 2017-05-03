@@ -17,5 +17,9 @@ namespace ComplejoDeCines.Controllers
         {
             return View();
         }
+        public ActionResult confirmacion()
+        {
+            return View();
+        }
     }
 }
