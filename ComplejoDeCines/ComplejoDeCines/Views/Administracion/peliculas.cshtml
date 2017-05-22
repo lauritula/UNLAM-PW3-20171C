@@ -18,7 +18,10 @@
                     <li class="active"><a href="#">Seleccione una opcion</a></li>
                     <li>@Html.ActionLink("Nueva película", "crearPelicula", "Administracion", null, null)</li>                   
                 </ul>    
-                <button type="button" onclick="location.href='@Url.Action("menuPrincipal", "Administracion")'" class="btn btn-default">Volver</button>
+                <div>
+                    <button type="button" onclick="location.href='@Url.Action("menuPrincipal", "Administracion")'" class="btn btn-danger">Volver</button>
+
+                </div>
 
 }
 
