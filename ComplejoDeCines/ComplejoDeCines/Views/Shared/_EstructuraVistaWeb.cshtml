@@ -6,11 +6,10 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    @RenderSection("title")  
+    @RenderSection("title")
 
     <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/css/styles.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="~/Scripts/bootstrap.js"></script>
     <script language="JavaScript" type="text/javascript" src="~/Content/js/codigojs.js"></script>
@@ -21,11 +20,12 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <p class="navbar-text">Complejo de cines</p>
-</div>
+            </div>
             <ul class="nav navbar-nav">
                 <li>@Html.ActionLink("Home", "inicio", "Home", null, null)</li>
             </ul>
@@ -43,9 +43,15 @@
             </div>
             <div class="col-sm-1"></div>
         </div>
+        <br />
+        <!--20170509 Se agrega Footer-->
+        <div id="footer">
+            <div class="container">
+                <p class="text-muted credit">&copy; @DateTime.Now.Year - 1C-TP-Rabuñal Julieta - Metallo Martin - Tula Laura - Ayunta Yamila</p>
+            </div>
+        </div>
     </div>
-       
+
 </body>
 </html>
-
 
