@@ -1,29 +1,32 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "inicio";
-    Layout = "~/Views/Shared/_EstructuraVistaWeb.cshtml";
+   
 }
 
 @section title  {
     <title>Administraciòn de películas</title>
 }
 @section header{
-<div class="page-header">
-    <h3>Gestión de películas</h3>
-</div>
+    <div class="page-header">
+        <h3>Gestión de películas</h3>
+    </div>
 }
 @section body
-    {               
-                <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="#">Seleccione una opcion</a></li>
-                    <li>@Html.ActionLink("Nueva película", "crearPelicula", "Administracion", null, null)</li>                   
-                </ul>    
-                <div>
-                    <button type="button" onclick="location.href='@Url.Action("menuPrincipal", "Administracion")'" class="btn btn-danger">Volver</button>
+    {
+    <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">Seleccione una opcion</a></li>
+        <li>@Html.ActionLink("Nueva película", "CrearPelicula", "Administracion", null, null)</li>
+    </ul>
+    <div>
+        <button type="button" onclick="location.href='@Url.Action("MenuPrincipal", "Administracion")'" class="btn btn-danger">Volver</button>
 
-                </div>
+    </div>
 
 }
+
+
+
+
 
 
 

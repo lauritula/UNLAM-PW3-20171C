@@ -1,7 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "inicio";
-    Layout = "~/Views/Shared/_EstructuraVistaWeb.cshtml";
+    ViewBag.Title = "Carteleras";
 }
 
 @section title  {
@@ -9,22 +8,26 @@
 }
 @section header
 {
-<div class="page-header">
-    <h3>Gestión de carteleras</h3>
-</div>
+    <div class="page-header">
+        <h3>Gestión de carteleras</h3>
+    </div>
 }
 @section body
     {
-                <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="#">Seleccione una opcion</a></li>
-                    <li>@Html.ActionLink("Nueva cartelera", "crearCartelera", "Administracion", null, null)</li>
-                    <li>@Html.ActionLink("Modificar cartelera", "modificarCartelera", "Administracion", null, null)</li>
-                    <li>@Html.ActionLink("Eliminar cartelera", "eliminarCartelera", "Administracion", null, null)</li>
+    <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">Seleccione una opcion</a></li>
+        <li>@Html.ActionLink("Nueva cartelera", "CrearCartelera", "Administracion", null, null)</li>
+        <li>@Html.ActionLink("Modificar cartelera", "ModificarCartelera", "Administracion", null, null)</li>
+        <li>@Html.ActionLink("Eliminar cartelera", "EliminarCartelera", "Administracion", null, null)</li>
 
-                </ul>
-                <button type="button" onclick="location.href='@Url.Action("menuPrincipal", "Administracion")'" class="btn btn-danger">Volver</button>
+    </ul>
+    <button type="button" onclick="location.href='@Url.Action("menuPrincipal", "Administracion")'" class="btn btn-danger">Volver</button>
 
 }
+
+
+
+
 
 
 

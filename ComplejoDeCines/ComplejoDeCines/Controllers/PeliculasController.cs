@@ -13,11 +13,11 @@ namespace ComplejoDeCines.Controllers
         {
             return View();
         }
-        public ActionResult reserva()
+        public ActionResult Reserva()
         {
             return View();
         }
-        public ActionResult confirmacion()
+        public ActionResult Confirmacion()
         {
             return View();
         }

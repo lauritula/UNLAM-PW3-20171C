@@ -1,7 +1,6 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "inicio";
-    Layout = "~/Views/Shared/_EstructuraVistaWeb.cshtml";
+   
 }
 
 @section title  {
@@ -9,76 +8,78 @@
 }
 @section header
 {
-<div class="page-header">
-    <h3>Información de nueva película</h3>
-</div>  
+    <div class="page-header">
+        <h3>Información de nueva película</h3>
+    </div>
 }
 @section body
     {
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="Nombre">Nombre</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="Nombre" placeholder="Ingrese nombre de película " name="nombre">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="Descripción">Descripción</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="Descripción" placeholder="Ingrese Descripción de película" name="Descripción">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="Clasificación">Clasificación</label>
-                            <div class="col-sm-4">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" name="clasificacion">
-                                        Seleccione una opción
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">traer datos de lista</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="Género">Género</label>
-                            <div class="col-sm-4">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" name="genero">
-                                        Seleccione una opción
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">traer datos de lista</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="Imagen">Imagen</label>
-                            <div class="col-sm-4">
-                                <input type="file" hidden>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="Duracion">Duración</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="Duracion" placeholder="Ingrese Duración de película" name="Duración">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="buttons"></label>
-                            <button type="button" onclick="location.href='@Url.Action("inicio", "Home")'" class="btn btn-success">Listar películas</button>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="Nombre">Nombre</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="Nombre" placeholder="Ingrese nombre de película " name="nombre">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="Descripción">Descripción</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="Descripción" placeholder="Ingrese Descripción de película" name="Descripción">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="Clasificación">Clasificación</label>
+            <div class="col-sm-4">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" name="clasificacion">
+                        Seleccione una opción
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">traer datos de lista</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="Género">Género</label>
+            <div class="col-sm-4">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" name="genero">
+                        Seleccione una opción
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">traer datos de lista</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="Imagen">Imagen</label>
+            <div class="col-sm-4">
+                <input type="file" hidden>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="Duracion">Duración</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="Duracion" placeholder="Ingrese Duración de película" name="Duración">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="buttons"></label>
+            <button type="button" onclick="location.href='@Url.Action("Inicio", "Home")'" class="btn btn-success">Listar películas</button>
 
-                            <div class="col-sm-2">
-                                <button type="button" onclick="location.href='@Url.Action("crearPelicula", "Administracion")'" class="btn btn-success">Agregar película</button>
-                            </div>
-                        </div>
+            <div class="col-sm-2">
+                <button type="button" onclick="location.href='@Url.Action("CrearPelicula", "Administracion")'" class="btn btn-success">Agregar película</button>
+            </div>
+        </div>
 
-                    </form>
-       
+    </form>
+
 }
+
+
 
 

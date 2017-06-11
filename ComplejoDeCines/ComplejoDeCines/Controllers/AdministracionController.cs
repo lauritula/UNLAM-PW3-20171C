@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComplejoDeCines.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,52 +10,63 @@ namespace ComplejoDeCines.Controllers
     public class AdministracionController : Controller
     {
         // GET: Administracion
-        public ActionResult inicio()
+        public ActionResult Inicio()
+        {
+            var modelo = new LoginAdministradorModels(); 
+            return View(modelo);
+        }
+
+        [HttpPost]
+        public ActionResult Inicio(LoginAdministradorModels dato)
+        {
+            if (ModelState.IsValid)
+                return RedirectToAction("MenuPrincipal", "Administracion");
+
+            return View(dato);
+        }
+
+        public ActionResult MenuPrincipal()
         {
             return View();
         }
 
-        public ActionResult menuPrincipal()
+        public ActionResult Peliculas()
         {
             return View();
         }
-        public ActionResult peliculas()
+        public ActionResult CrearPelicula()
         {
             return View();
         }
-        public ActionResult crearPelicula()
+        public ActionResult Sedes()
         {
             return View();
         }
-        public ActionResult sedes()
+        public ActionResult CrearSede()
         {
             return View();
         }
-        public ActionResult crearSede()
+        public ActionResult ModificarSede()
         {
             return View();
         }
-        public ActionResult modificarSede()
+        public ActionResult Reportes()
         {
             return View();
         }
-        public ActionResult reportes()
+        public ActionResult Carteleras()
         {
             return View();
         }
-        public ActionResult carteleras()
+        public ActionResult CrearCartelera()
         {
             return View();
         }
-        public ActionResult crearCartelera()
+        public ActionResult ModificarCartelera()
         {
             return View();
         }
-        public ActionResult modificarCartelera()
-        {
-            return View();
-        }
-        public ActionResult eliminarCartelera()
+        public ActionResult EliminarCartelera()
         {
             return View();
         }

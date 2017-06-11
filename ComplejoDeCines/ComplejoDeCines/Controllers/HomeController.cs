@@ -9,7 +9,7 @@ namespace ComplejoDeCines.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult inicio()
+        public ActionResult Inicio()
         {
             return View();
         }

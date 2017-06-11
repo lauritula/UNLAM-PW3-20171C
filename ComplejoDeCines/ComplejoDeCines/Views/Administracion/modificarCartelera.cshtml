@@ -1,8 +1,8 @@
 ﻿
 @{
-    ViewBag.Title = "inicio";
-    Layout = "~/Views/Shared/_EstructuraVistaWeb.cshtml";
+    ViewBag.Title = "ModificarCartelera";
 }
+
 
 @section title  {
     <title>Administración de carteleras</title>
@@ -10,16 +10,18 @@
 @section header
 {
 
-<div class="page-header">
-    <h3>Modificar cartelera</h3>
-</div>
+    <div class="page-header">
+        <h3>Modificar cartelera</h3>
+    </div>
 }
 @section body
     {
 
-        <button type="button" onclick="location.href='@Url.Action("carteleras", "Administracion")'" class="btn btn-danger">Volver</button>
+    <button type="button" onclick="location.href='@Url.Action("Carteleras", "Administracion")'" class="btn btn-danger">Volver</button>
 
 }
+
+
 
 
 

@@ -1,7 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "inicio";
-    Layout = "~/Views/Shared/_EstructuraVistaWeb.cshtml";
+    ViewBag.Title = "ModificarSede";
 }
 
 @section title  {
@@ -9,15 +8,19 @@
 }
 @section header
 {
-<div class="page-header">
-    <h3>Modificar Sede</h3>
-</div>
+    <div class="page-header">
+        <h3>Modificar Sede</h3>
+    </div>
 }
 @section body
-    {            
-                <button type="button" onclick="location.href='@Url.Action("peliculas", "Administracion")'" class="btn btn-danger">Volver</button>
-     
+    {
+    <button type="button" onclick="location.href='@Url.Action("Peliculas", "Administracion")'" class="btn btn-danger">Volver</button>
+
 }
+
+
+
+
 
 
 

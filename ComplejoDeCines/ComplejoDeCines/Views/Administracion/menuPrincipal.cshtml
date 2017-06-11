@@ -1,28 +1,25 @@
 ﻿
 @{
-    ViewBag.Title = "inicio";
-    Layout = "~/Views/Shared/_EstructuraVistaWeb.cshtml";
+    ViewBag.Title = "Inicio";
 }
 
 @section title  {
-    <title>Administracion</title>
+    <title>Complejo de cines</title>
 }
+
 @section header
 {
     <div class="page-header">
         <h3>Bienvenido administrador</h3>
-     </div>
+    </div>
 }
-        @section body
+@section body
     {
-                        <ul class="nav nav-pills nav-stacked">
-                            <li class="active"><a href="#">Seleccione una opcion</a></li>
-                            <li>@Html.ActionLink("Películas", "peliculas", "Administracion", null, null)</li>
-                            <li>@Html.ActionLink("Carteleras", "carteleras", "Administracion", null, null)</li>
-                            <li>@Html.ActionLink("Sedes", "sedes", "Administracion", null, null)</li>
-                            <li>@Html.ActionLink("Reservas", "reportes", "Administracion", null, null)</li>
-                        </ul>
-        }
-
-
-
+    <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">Seleccione una opcion</a></li>
+        <li>@Html.ActionLink("Películas", "Peliculas", "Administracion", null, null)</li>
+        <li>@Html.ActionLink("Carteleras", "Carteleras", "Administracion", null, null)</li>
+        <li>@Html.ActionLink("Sedes", "Sedes", "Administracion", null, null)</li>
+        <li>@Html.ActionLink("Reservas", "Reportes", "Administracion", null, null)</li>
+    </ul>
+}
