@@ -96,3 +96,9 @@ C:\PW3TP\UNLAM-PW3-20171C\ComplejoDeCines\ComplejoDeCines\bin\es\System.Web.Mvc.
 C:\PW3TP\UNLAM-PW3-20171C\ComplejoDeCines\ComplejoDeCines\obj\Debug\ComplejoDeCines.csprojResolveAssemblyReference.cache
 C:\PW3TP\UNLAM-PW3-20171C\ComplejoDeCines\ComplejoDeCines\obj\Debug\ComplejoDeCines.dll
 C:\PW3TP\UNLAM-PW3-20171C\ComplejoDeCines\ComplejoDeCines\obj\Debug\ComplejoDeCines.pdb
+C:\PW3TP\UNLAM-PW3-20171C\ComplejoDeCines\ComplejoDeCines\bin\EntityFramework.dll
+C:\PW3TP\UNLAM-PW3-20171C\ComplejoDeCines\ComplejoDeCines\bin\EntityFramework.SqlServer.dll
+C:\PW3TP\UNLAM-PW3-20171C\ComplejoDeCines\ComplejoDeCines\bin\EntityFramework.xml
+C:\PW3TP\UNLAM-PW3-20171C\ComplejoDeCines\ComplejoDeCines\bin\EntityFramework.SqlServer.xml
+C:\PW3TP\UNLAM-PW3-20171C\ComplejoDeCines\ComplejoDeCines\bin\es\EntityFramework.resources.dll
+C:\PW3TP\UNLAM-PW3-20171C\ComplejoDeCines\ComplejoDeCines\bin\es\EntityFramework.SqlServer.resources.dll

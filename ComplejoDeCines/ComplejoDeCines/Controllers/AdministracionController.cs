@@ -1,14 +1,19 @@
 ﻿using ComplejoDeCines.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using ComplejoDeCines;
+using System.Linq;
 
 namespace ComplejoDeCines.Controllers
 {
     public class AdministracionController : Controller
     {
+        CineDB contexto;
+        public AdministracionController()
+        {
+            contexto = new CineDB();
+          
+        }
+
         // GET: Administracion
         public ActionResult Inicio()
         {
@@ -34,9 +39,22 @@ namespace ComplejoDeCines.Controllers
         {
             return View();
         }
+
         public ActionResult CrearPelicula()
         {
-            return View();
+            CineDB cine = new CineDB();
+            var clasificaciones = from listaClasif in contexto.Calificaciones
+                                  select listaClasif;
+            ViewBag.listas = clasificaciones;
+            return View(clasificaciones);
+        }
+
+        [HttpPost]
+        public ActionResult CrearPelicula(Pelicula pelicula)
+        {
+            contexto.Peliculas.Add(pelicula);
+            contexto.SaveChanges();
+            return RedirectToAction("MenuPrincipal", "Administracion");
         }
         public ActionResult Sedes()
         {

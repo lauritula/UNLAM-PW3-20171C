@@ -1,8 +1,6 @@
 ﻿@{
-    ViewBag.Title = "inicio";
-   
+    List<ComplejoDeCines.Calificacione> listas = ViewBag.listas;
 }
-
 @section title  {
     <title>Administración de películas</title>
 }
@@ -14,7 +12,7 @@
 }
 @section body
     {
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="post" action="/Administracion/CrearPelicula">
         <div class="form-group">
             <label class="control-label col-sm-2" for="Nombre">Nombre</label>
             <div class="col-sm-4">
@@ -35,9 +33,15 @@
                         Seleccione una opción
                         <span class="caret"></span>
                     </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">traer datos de lista</a></li>
-                    </ul>
+                    <select>
+                        @foreach (var item in listas)
+                        {
+                            <option value="@item.IdCalificacion">
+                                @item.Nombre
+                            </option>
+                        }
+                    </select>
+
                 </div>
             </div>
         </div>
@@ -72,7 +76,8 @@
             <button type="button" onclick="location.href='@Url.Action("Inicio", "Home")'" class="btn btn-success">Listar películas</button>
 
             <div class="col-sm-2">
-                <button type="button" onclick="location.href='@Url.Action("CrearPelicula", "Administracion")'" class="btn btn-success">Agregar película</button>
+                <input type="submit" value="Submit">
+                <!--button type="button" class="btn btn-success">Agregar película</!--button-->
             </div>
         </div>
 

@@ -8,7 +8,7 @@ namespace ComplejoDeCines.Models
 {
     public class EntityManagerUtils:DbContext
     {
-        public EntityManagerUtils() : base("name=CONEXION_WEBCONFIG") { }
+        public EntityManagerUtils() : base("name=Entities") {}
         public DbSet<Pelicula> Peliculas { get; set; }
         public DbSet<Cartelera> Carteleras { get; set; }
         public DbSet<Sede> Sedes { get; set; }
