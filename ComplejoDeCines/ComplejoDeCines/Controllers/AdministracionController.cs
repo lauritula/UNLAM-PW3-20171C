@@ -2,6 +2,9 @@
 using System.Web.Mvc;
 using ComplejoDeCines;
 using System.Linq;
+using System;
+using System.IO;
+using static System.Net.WebRequestMethods;
 
 namespace ComplejoDeCines.Controllers
 {
@@ -42,16 +45,16 @@ namespace ComplejoDeCines.Controllers
 
         public ActionResult CrearPelicula()
         {
-            CineDB cine = new CineDB();
-            var clasificaciones = from listaClasif in contexto.Calificaciones
-                                  select listaClasif;
-            ViewBag.listas = clasificaciones;
-            return View(clasificaciones);
+            ViewBag.generos = contexto.Generos.ToList();
+            ViewBag.calificaciones = contexto.Calificaciones.ToList();
+            return View();
+
         }
 
         [HttpPost]
         public ActionResult CrearPelicula(Pelicula pelicula)
         {
+
             contexto.Peliculas.Add(pelicula);
             contexto.SaveChanges();
             return RedirectToAction("MenuPrincipal", "Administracion");

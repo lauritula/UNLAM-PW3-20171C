@@ -1,5 +1,6 @@
 ﻿@{
-    List<ComplejoDeCines.Calificacione> listas = ViewBag.listas;
+    List<Calificacione> calificaciones = ViewBag.calificaciones;
+    List<Genero> generos = ViewBag.generos;
 }
 @section title  {
     <title>Administración de películas</title>
@@ -28,41 +29,35 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="Clasificación">Clasificación</label>
             <div class="col-sm-4">
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" name="clasificacion">
-                        Seleccione una opción
-                        <span class="caret"></span>
-                    </button>
                     <select>
-                        @foreach (var item in listas)
-                        {
-                            <option value="@item.IdCalificacion">
-                                @item.Nombre
-                            </option>
-                        }
+                            @foreach (var item in calificaciones)
+                            {
+                                <option value="@item.IdCalificacion">
+                                    @item.Nombre
+                                </option>
+                            }   
                     </select>
-
-                </div>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="Género">Género</label>
             <div class="col-sm-4">
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" name="genero">
-                        Seleccione una opción
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">traer datos de lista</a></li>
-                    </ul>
-                </div>
+                <select>
+                    @foreach (var item in generos)
+                    {
+                        <option value="@item.IdGenero">
+                            @item.Nombre
+                        </option>
+                    }
+                </select>
+
+               
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="Imagen">Imagen</label>
             <div class="col-sm-4">
-                <input type="file" hidden>
+                <input id="ImagePath" type="file" name="imagenPel" hidden>
             </div>
         </div>
         <div class="form-group">
