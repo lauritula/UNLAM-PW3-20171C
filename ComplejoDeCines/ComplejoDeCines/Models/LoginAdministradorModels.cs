@@ -8,10 +8,12 @@ namespace ComplejoDeCines.Models
 {
     public class LoginAdministradorModels
     {
+        public int UserId { get; set; }
+
         [Required(ErrorMessage = "Campo Obligatorio")]
         public string Usuario { get; set; }
 
         [Required(ErrorMessage = "Ingresar Contraseña")]
-        public int Password { get; set; }
+        public string Password { get; set; }
     }
 }
