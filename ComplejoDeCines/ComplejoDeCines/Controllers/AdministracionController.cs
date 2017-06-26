@@ -39,9 +39,7 @@ namespace ComplejoDeCines.Controllers
                         Session["UserName"] = dato.Usuario.ToString();
                         return RedirectToAction("MenuPrincipal", "Administracion");
                     }
-               
             }
-
             return View(dato);
         }
 
@@ -59,18 +57,32 @@ namespace ComplejoDeCines.Controllers
 
         public ActionResult Peliculas()
         {
-            var dato = from gato in contexto.Peliculas
-                       select gato;
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                var dato = from peliculas in contexto.Peliculas
+                           select peliculas;
 
-            return View(dato);
+                return View(dato);
+            }
+            
         }
 
         public ActionResult CrearPelicula()
         {
-            ViewBag.generos = contexto.Generos.ToList();
-            ViewBag.calificaciones = contexto.Calificaciones.ToList();
-            return View();
-
+            if (Session["UserId"] != null)
+            {
+                ViewBag.generos = contexto.Generos.ToList();
+                ViewBag.calificaciones = contexto.Calificaciones.ToList();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Administracion");
+            }
         }
 
         [HttpPost]
@@ -81,37 +93,101 @@ namespace ComplejoDeCines.Controllers
             contexto.SaveChanges();
             return RedirectToAction("MenuPrincipal", "Administracion");
         }
+
         public ActionResult Sedes()
         {
-            return View();
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Administracion");
+            }
         }
+
         public ActionResult CrearSede()
         {
-            return View();
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Administracion");
+            }
         }
+
         public ActionResult ModificarSede()
         {
-            return View();
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Administracion");
+            }
         }
+
         public ActionResult Reportes()
         {
-            return View();
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Administracion");
+            }
         }
+
         public ActionResult Carteleras()
         {
-            return View();
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Administracion");
+            }
         }
+
         public ActionResult CrearCartelera()
         {
-            return View();
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Administracion");
+            }
         }
+
         public ActionResult ModificarCartelera()
         {
-            return View();
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Administracion");
+            }
         }
+
         public ActionResult EliminarCartelera()
         {
-            return View();
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Administracion");
+            }
         }
     }
 }
