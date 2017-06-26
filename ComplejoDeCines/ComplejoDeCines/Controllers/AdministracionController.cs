@@ -118,6 +118,14 @@ namespace ComplejoDeCines.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult CrearSede(Sede newSede)
+        {
+            contexto.Sedes.Add(newSede);
+            contexto.SaveChanges();
+            return RedirectToAction("MenuPrincipal", "Administracion");
+        }
+
         public ActionResult ModificarSede()
         {
             if (Session["UserId"] != null)
@@ -128,6 +136,15 @@ namespace ComplejoDeCines.Controllers
             {
                 return RedirectToAction("Login", "Administracion");
             }
+        }
+
+        [HttpPost]
+        public ActionResult ModificarSede(int idSede, Sede Sede)
+        {
+            var sedeToEdit = contexto.Sedes.Where(a => a.IdSede.Equals(idSede)).FirstOrDefault();
+            //TO DO: Asignacion de nuevos valores de la Sede encontrada
+            contexto.SaveChanges();
+            return RedirectToAction("MenuPrincipal", "Administracion");
         }
 
         public ActionResult Reportes()
@@ -166,6 +183,14 @@ namespace ComplejoDeCines.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult CrearCartelera(Sede newCartelera)
+        {
+            contexto.Sedes.Add(newCartelera);
+            contexto.SaveChanges();
+            return RedirectToAction("MenuPrincipal", "Administracion");
+        }
+
         public ActionResult ModificarCartelera()
         {
             if (Session["UserId"] != null)
@@ -178,6 +203,15 @@ namespace ComplejoDeCines.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult ModificarCartelera(int idCartelera, Cartelera Cartelera)
+        {
+            var carteleraToEdit = contexto.Carteleras.Where(a => a.IdCartelera.Equals(idCartelera)).FirstOrDefault();
+            //Líneas de edicion de datos de carteleras
+            contexto.SaveChanges();
+            return RedirectToAction("MenuPrincipal", "Administracion");
+        }
+
         public ActionResult EliminarCartelera()
         {
             if (Session["UserId"] != null)
@@ -188,6 +222,15 @@ namespace ComplejoDeCines.Controllers
             {
                 return RedirectToAction("Login", "Administracion");
             }
+        }
+
+        [HttpPost]
+        public ActionResult EliminarCartelera(int idCartelera)
+        {
+            var carteleraToDelete = contexto.Carteleras.Where(a => a.IdCartelera.Equals(idCartelera)).FirstOrDefault();
+            contexto.Carteleras.Remove(carteleraToDelete);
+            contexto.SaveChanges();
+            return RedirectToAction("MenuPrincipal", "Administracion");
         }
     }
 }
