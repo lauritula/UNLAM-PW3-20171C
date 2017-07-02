@@ -14,14 +14,20 @@
 }
 @section body
     {
-    <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#">Seleccione una opcion</a></li>
-        <li>@Html.ActionLink("Nueva cartelera", "CrearCartelera", "Administracion", null, null)</li>
-        <li>@Html.ActionLink("Modificar cartelera", "ModificarCartelera", "Administracion", null, null)</li>
-        <li>@Html.ActionLink("Eliminar cartelera", "EliminarCartelera", "Administracion", null, null)</li>
+        <div class="col-lg-6">
+            <p>
+                ¿Lista de Carteleras?
+            </p>
 
-    </ul>
-    <button type="button" onclick="location.href='@Url.Action("menuPrincipal", "Administracion")'" class="btn btn-danger">Volver</button>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#">Opciones:</a></li>
+                <li>@Html.ActionLink("Nueva cartelera", "CrearCartelera", "Administracion", null, null)</li>
+                <li>@Html.ActionLink("Modificar cartelera", "ModificarCartelera", "Administracion", null, null)</li>
+                <li>@Html.ActionLink("Eliminar cartelera", "EliminarCartelera", "Administracion", null, null)</li>
+            </ul>
+
+            <button type="button" onclick="location.href='@Url.Action("MenuPrincipal", "Administracion")'" class="btn btn-danger">Volver al Inicio</button>
+        </div>
 
 }
 

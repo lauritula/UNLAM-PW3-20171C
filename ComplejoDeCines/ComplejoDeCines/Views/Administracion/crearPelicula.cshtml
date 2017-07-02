@@ -1,84 +1,51 @@
-﻿@{
-    List<Calificacione> calificaciones = ViewBag.calificaciones;
-    List<Genero> generos = ViewBag.generos;
+﻿
+@model ComplejoDeCines.Models.CrearPeliculaModels
+
+
+@{
+    ViewBag.Title = "CrearPelicula";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 @section title  {
-    <title>Administración de películas</title>
+    <title>Nueva Pelicula</title>
 }
 @section header
 {
     <div class="page-header">
-        <h3>Información de nueva película</h3>
+        <h3>Información de nueva pelicula</h3>
     </div>
 }
 @section body
     {
-    <form class="form-horizontal" method="post" action="/Administracion/CrearPelicula">
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="Nombre">Nombre</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="Nombre" placeholder="Ingrese nombre de película " name="nombre">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="Descripción">Descripción</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="Descripción" placeholder="Ingrese Descripción de película" name="Descripción">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="Clasificación">Clasificación</label>
-            <div class="col-sm-4">
-                    <select>
-                            @foreach (var item in calificaciones)
-                            {
-                                <option value="@item.IdCalificacion">
-                                    @item.Nombre
-                                </option>
-                            }   
-                    </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="Género">Género</label>
-            <div class="col-sm-4">
-                <select>
-                    @foreach (var item in generos)
-                    {
-                        <option value="@item.IdGenero">
-                            @item.Nombre
-                        </option>
-                    }
-                </select>
 
-               
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="Imagen">Imagen</label>
-            <div class="col-sm-4">
-                <input id="ImagePath" type="file" name="imagenPel" hidden>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="Duracion">Duración</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="Duracion" placeholder="Ingrese Duración de película" name="Duración">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="buttons"></label>
-            <button type="button" onclick="location.href='@Url.Action("Inicio", "Home")'" class="btn btn-success">Listar películas</button>
+    <div class="container">
+        @using (Html.BeginForm("/CrearPelicula", "Administracion", new { @class = "panel-body" }))
+    {
+            <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    @Html.TextBoxFor(model => model.Nombre, new { placeholder = "Nombre", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Descripcion</label>
+                    @Html.TextBoxFor(model => model.Descripcion, new { placeholder = "Descrpcion", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                </div>
 
-            <div class="col-sm-2">
-                <input type="submit" value="Submit">
-                <!--button type="button" class="btn btn-success">Agregar película</!--button-->
-            </div>
-        </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-success" value="Guardar" />
+                    <button type="button" onclick="location.href='@Url.Action("Peliculas", "Administracion")'" class="btn btn-danger">Volver</button>
+                </div>
 
-    </form>
+            </div>
+        }
+    </div>
 
 }
+
 
 
 

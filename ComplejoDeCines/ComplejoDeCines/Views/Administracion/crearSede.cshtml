@@ -1,10 +1,14 @@
 ﻿
+@model ComplejoDeCines.Models.CrearSedeModels
+    
 @{
     ViewBag.Title = "CrearSede";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 @section title  {
-    <title>Administración de sedes</title>
+    <title>Nueva Sede</title>
 }
 @section header
 {
@@ -14,37 +18,39 @@
 }
 @section body
     {
-    <form class="form-horizontal">
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="Nombre">Nombre</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="Nombre" placeholder="Ingrese nombre de sede " name="nombre">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="direccion">Dirección</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="direccion" placeholder="Ingrese dirección de sede" name="direccion">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="valor">Precio entrada general</label>
-            <div class="col-sm-4">
-                <input type="text" class="form-control" id="valor" placeholder="Ingrese valor de entrada general" name="valor">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="buttons"></label>
-            <button type="button" onclick="location.href='@Url.Action("Sedes", "Administracion")'" class="btn btn-danger">Volver</button>
 
-            <div class="col-sm-2">
-                <button type="button" onclick="location.href='@Url.Action("CrearSede", "Administracion")'" class="btn btn-success">Agregar sede</button>
-
+<div class="container">
+    @using (Html.BeginForm("/CrearSede", "Administracion", new { @class = "panel-body" }))
+    {
+        <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                @Html.TextBoxFor(model => model.Nombre, new { placeholder = "Nombre", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
             </div>
-        </div>
-    </form>
 
-}
+            <div class="form-group">
+                <label for="direcion">Direccion</label>
+                @Html.TextBoxFor(model => model.Direccion, new { placeholder = "Direccion", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label for="precio">Precio Entrada</label>
+                @Html.TextBoxFor(model => model.PrecioGeneral, new { placeholder = "Precio", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PrecioGeneral, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="text-center">
+                <input type="submit" class="btn btn-success" value="Guardar" />
+                <button type="button" onclick="location.href='@Url.Action("Sedes", "Administracion")'" class="btn btn-danger">Volver</button>
+            </div>
+
+        </div>
+    }
+</div>
+    
+    }
 
 
 

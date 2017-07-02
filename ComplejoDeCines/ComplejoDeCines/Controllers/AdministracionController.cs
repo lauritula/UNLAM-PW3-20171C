@@ -5,39 +5,44 @@ using System.Linq;
 using System;
 using System.IO;
 using static System.Net.WebRequestMethods;
+using System.Collections.Generic;
 
 namespace ComplejoDeCines.Controllers
 {
     public class AdministracionController : Controller
     {
-        CineDB contexto;
+        CineDB contexto = new CineDB();
         public AdministracionController()
         {
             contexto = new CineDB();
           
         }
 
-        // GET: Administracion
         public ActionResult Inicio()
         {
             var modelo = new LoginAdministradorModels(); 
             return View(modelo);
         }
 
-        /*20170624 -- VALIDA USUARIO POR BASE DE DATOS*/
         [HttpPost]
         public ActionResult Inicio(LoginAdministradorModels dato)
         {
-            /*if (ModelState.IsValid)
-                return RedirectToAction("MenuPrincipal", "Administracion");*/
             if (ModelState.IsValid)
             {
                 var valor = contexto.Usuarios.Where(a => a.NombreUsuario.Equals(dato.Usuario) && a.Password.Equals(dato.Password)).FirstOrDefault();
                     if (valor != null)
-                    {
-                        Session["UserId"] = dato.UserId.ToString();
-                        Session["UserName"] = dato.Usuario.ToString();
-                        return RedirectToAction("MenuPrincipal", "Administracion");
+                        {
+                            Session["UserId"] = dato.UserId.ToString();
+                            Session["UserName"] = dato.Usuario.ToString();
+                   if (Session["CurrentStatus"] != null)
+                        {
+                            var redirect = Session["CurrentStatus"].ToString();
+                            Session["CurrentStatus"] = null;
+                            return RedirectToAction(redirect, "Administracion");
+                        }
+                  else {
+                            return RedirectToAction("MenuPrincipal", "Administracion");
+                       } 
                     }
             }
             return View(dato);
@@ -51,7 +56,8 @@ namespace ComplejoDeCines.Controllers
             }
             else
             {
-                return RedirectToAction("Login", "Administracion");
+                Session["CurrentStatus"] = "MenuPrincipal";
+                return RedirectToAction("Inicio", "Administracion");
             }
         }
 
@@ -59,16 +65,37 @@ namespace ComplejoDeCines.Controllers
         {
             if (Session["UserId"] != null)
             {
+                var peliculas = contexto.Peliculas.ToList();
+                ViewBag.Peliculas = peliculas;
                 return View();
             }
             else
             {
-                var dato = from peliculas in contexto.Peliculas
-                           select peliculas;
-
-                return View(dato);
+                Session["CurrentStatus"] = "Peliculas";
+                return RedirectToAction("Inicio", "Administracion");
             }
-            
+        }
+
+        public ActionResult NuevaPelicula() {
+            if (Session["UserId"] != null)
+            {
+                List<Calificacione> Calif = new List<Calificacione>();
+                Calif = contexto.Calificaciones.ToList();
+                ViewBag.Calif = Calif;
+
+                List<Genero> Gener = new List<Genero>();
+                Gener = contexto.Generos.ToList();
+                ViewBag.Gener = Gener;
+
+                //ViewData["Calificaciones"] = contexto.Calificaciones.ToList();
+                //ViewData["Generos"] = contexto.Generos.ToList();
+                return View();
+            }
+            else
+            {
+                Session["CurrentStatus"] = "NuevaPelicula";
+                return RedirectToAction("Inicio", "Administracion");
+            }
         }
 
         public ActionResult CrearPelicula()
@@ -81,31 +108,36 @@ namespace ComplejoDeCines.Controllers
             }
             else
             {
-                return RedirectToAction("Login", "Administracion");
+                Session["CurrentStatus"] = "CrearPelicula";
+                return RedirectToAction("Inicio", "Administracion");
             }
         }
 
         [HttpPost]
-        public ActionResult CrearPelicula(Pelicula pelicula)
+        public ActionResult CrearPelicula(Pelicula p)
         {
-
-            contexto.Peliculas.Add(pelicula);
+            contexto.Peliculas.Add(p);
             contexto.SaveChanges();
-            return RedirectToAction("MenuPrincipal", "Administracion");
+            return RedirectToAction("Sedes", "Administracion");
         }
 
+        //DONE
         public ActionResult Sedes()
         {
             if (Session["UserId"] != null)
             {
+                var sedes = contexto.Sedes.ToList();
+                ViewBag.Sedes = sedes;
                 return View();
             }
             else
             {
-                return RedirectToAction("Login", "Administracion");
+                Session["CurrentStatus"] = "Sedes";
+                return RedirectToAction("Inicio", "Administracion");
             }
         }
 
+        //DONE
         public ActionResult CrearSede()
         {
             if (Session["UserId"] != null)
@@ -114,16 +146,33 @@ namespace ComplejoDeCines.Controllers
             }
             else
             {
-                return RedirectToAction("Login", "Administracion");
+                Session["CurrentStatus"] = "CrearSede";
+                return RedirectToAction("Inicio", "Administracion");
             }
         }
 
+        //DONE
         [HttpPost]
-        public ActionResult CrearSede(Sede newSede)
+        public ActionResult CrearSede(Sede s)
         {
-            contexto.Sedes.Add(newSede);
-            contexto.SaveChanges();
-            return RedirectToAction("MenuPrincipal", "Administracion");
+            if (!ModelState.IsValid)
+                return View();
+
+            try
+            {
+                using (contexto)
+                {
+                    contexto.Sedes.Add(s);
+                    contexto.SaveChanges();
+                    return RedirectToAction("Sedes", "Administracion");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ModelState.AddModelError("", "Error al registrar Sede. " + ex.Message);
+                return View();
+            }
         }
 
         public ActionResult ModificarSede()
@@ -134,7 +183,8 @@ namespace ComplejoDeCines.Controllers
             }
             else
             {
-                return RedirectToAction("Login", "Administracion");
+                Session["CurrentStatus"] = "ModificarSede";
+                return RedirectToAction("Inicio", "Administracion");
             }
         }
 
@@ -144,7 +194,7 @@ namespace ComplejoDeCines.Controllers
             var sedeToEdit = contexto.Sedes.Where(a => a.IdSede.Equals(idSede)).FirstOrDefault();
             //TO DO: Asignacion de nuevos valores de la Sede encontrada
             contexto.SaveChanges();
-            return RedirectToAction("MenuPrincipal", "Administracion");
+            return RedirectToAction("Sedes", "Administracion");
         }
 
         public ActionResult Reportes()
@@ -155,7 +205,7 @@ namespace ComplejoDeCines.Controllers
             }
             else
             {
-                return RedirectToAction("Login", "Administracion");
+                return RedirectToAction("Inicio", "Administracion");
             }
         }
 
@@ -167,7 +217,7 @@ namespace ComplejoDeCines.Controllers
             }
             else
             {
-                return RedirectToAction("Login", "Administracion");
+                return RedirectToAction("Inicio", "Administracion");
             }
         }
 
@@ -179,7 +229,7 @@ namespace ComplejoDeCines.Controllers
             }
             else
             {
-                return RedirectToAction("Login", "Administracion");
+                return RedirectToAction("Inicio", "Administracion");
             }
         }
 
@@ -188,7 +238,7 @@ namespace ComplejoDeCines.Controllers
         {
             contexto.Sedes.Add(newCartelera);
             contexto.SaveChanges();
-            return RedirectToAction("MenuPrincipal", "Administracion");
+            return RedirectToAction("Carteleras", "Administracion");
         }
 
         public ActionResult ModificarCartelera()
@@ -199,7 +249,7 @@ namespace ComplejoDeCines.Controllers
             }
             else
             {
-                return RedirectToAction("Login", "Administracion");
+                return RedirectToAction("Inicio", "Administracion");
             }
         }
 
@@ -208,8 +258,8 @@ namespace ComplejoDeCines.Controllers
         {
             var carteleraToEdit = contexto.Carteleras.Where(a => a.IdCartelera.Equals(idCartelera)).FirstOrDefault();
             //Líneas de edicion de datos de carteleras
-            contexto.SaveChanges();
-            return RedirectToAction("MenuPrincipal", "Administracion");
+            //contexto.SaveChanges();
+            return RedirectToAction("Carteleras", "Administracion");
         }
 
         public ActionResult EliminarCartelera()
@@ -220,17 +270,17 @@ namespace ComplejoDeCines.Controllers
             }
             else
             {
-                return RedirectToAction("Login", "Administracion");
+                return RedirectToAction("Inicio", "Administracion");
             }
         }
 
         [HttpPost]
         public ActionResult EliminarCartelera(int idCartelera)
         {
-            var carteleraToDelete = contexto.Carteleras.Where(a => a.IdCartelera.Equals(idCartelera)).FirstOrDefault();
-            contexto.Carteleras.Remove(carteleraToDelete);
-            contexto.SaveChanges();
-            return RedirectToAction("MenuPrincipal", "Administracion");
+            //var carteleraToDelete = contexto.Carteleras.Where(a => a.IdCartelera.Equals(idCartelera)).FirstOrDefault();
+            //contexto.Carteleras.Remove(carteleraToDelete);
+            //contexto.SaveChanges();
+            return RedirectToAction("Carteleras", "Administracion");
         }
     }
 }

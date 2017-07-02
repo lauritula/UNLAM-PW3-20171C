@@ -235,7 +235,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Peliculas\Reserva.cshtml" />
     <Content Include="Views\Peliculas\Confirmacion.cshtml" />
     <Content Include="Views\Administracion\Peliculas.cshtml" />
     <Content Include="Views\Administracion\CrearPelicula.cshtml" />
@@ -247,6 +246,8 @@
     <Content Include="Views\Administracion\CrearCartelera.cshtml" />
     <Content Include="Views\Administracion\ModificarCartelera.cshtml" />
     <Content Include="Views\Administracion\EliminarCartelera.cshtml" />
+    <Content Include="Views\Administracion\NuevaPelicula.cshtml" />
+    <Content Include="Views\Peliculas\Reserva.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

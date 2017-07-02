@@ -8,10 +8,19 @@ namespace ComplejoDeCines.Controllers
 {
     public class HomeController : Controller
     {
+        CineDB contexto;
+        public HomeController()
+        {
+            contexto = new CineDB();
+
+        }
         // GET: Home
         public ActionResult Inicio()
         {
-            return View();
+            var dato = from peliculas in contexto.Peliculas
+                       select peliculas;
+
+            return View(dato);
         }
     }
 }

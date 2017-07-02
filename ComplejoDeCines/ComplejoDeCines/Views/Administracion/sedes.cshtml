@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Sedes";
 }
 
@@ -7,20 +6,37 @@
     <title>Administración de sedes</title>
 }
 @section header{
-    <div class="page-header">
+    <div class="page-header text-center">
         <h3>Gestión de sedes</h3>
     </div>
 }
 @section body
+    
     {
-    Acà iria la lista de sedes y debajo se puede modificar y agregar
-    <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#">Seleccione una opcion</a></li>
-        <li>@Html.ActionLink("Nueva sede", "CrearSede", "Administracion", null, null)</li>
-        <li>@Html.ActionLink("Modificar sede", "ModificarSede", "Administracion", null, null)</li>
-    </ul>
-    <button type="button" onclick="location.href='@Url.Action("MenuPrincipal", "Administracion")'" class="btn btn-danger">Volver</button>
-}
+        <div class="row">
+            <div>
+                <div class="row">
+                    <div class="col-lg-3 text-center">Nombre</div>
+                    <div class="col-lg-3 text-center">Direccion</div>
+                    <div class="col-lg-3 text-center">Precio Entrada</div>
+                    <div class="col-lg-3 text-center"></div>
+                </div>
+                @foreach (Sede sede in ViewBag.Sedes)
+                {
+                    <div class="row">
+                        <div class="col-lg-3 text-center">@sede.Nombre</div>
+                        <div class="col-lg-3 text-center">@sede.Direccion</div>
+                        <div class="col-lg-3 text-center">$ @sede.PrecioGeneral</div>
+                        <div class="col-lg-3 text-center"><a href="./ModificarSede?IdSede=@sede.IdSede" class="btn btn-warning">Editar</a></div>
+                    </div>
+                }
+            </div>
+            <div class="row text-center">
+                <button type="button" onclick="location.href='@Url.Action("CrearSede", "Administracion")'" class="btn btn-success">Nuevo</button>
+                <button type="button" onclick="location.href='@Url.Action("MenuPrincipal", "Administracion")'" class="btn btn-danger">Volver al Inicio</button>
+            </div>
+        </div>
+    }
 
 
 

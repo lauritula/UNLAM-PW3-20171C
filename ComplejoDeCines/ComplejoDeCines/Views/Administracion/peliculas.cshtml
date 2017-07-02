@@ -1,97 +1,46 @@
-﻿@model IEnumerable<ComplejoDeCines.Pelicula>
-
-@{
-    ViewBag.Title = "inicio";
-   
+﻿@{
+    ViewBag.Title = "Peliculas";
 }
 
 @section title  {
-    <title>Administraciòn de películas</title>
+    <title>Administración de películas</title>
 }
 @section header{
-    <div class="page-header">
-        <h3>Gestión de películas</h3>
+    <div class="page-header text-center">
+        <h3>Gestión de Peliculas</h3>
     </div>
 }
 @section body
+
     {
-      <p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Imagen)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Duracion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaCarga)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Calificacione.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Genero.Nombre)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Imagen)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Duracion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaCarga)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Calificacione.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genero.Nombre)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.IdPelicula }) |
-                @Html.ActionLink("Details", "Details", new { id = item.IdPelicula }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.IdPelicula })
-            </td>
-        </tr>
-    }
-
-</table>
-
-
-
-
-    @*<ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#">Seleccione una opcion</a></li>
-        <li>@Html.ActionLink("Nueva película", "CrearPelicula", "Administracion", null, null)</li>
-    </ul>
-    <div>
-        <button type="button" onclick="location.href='@Url.Action("MenuPrincipal", "Administracion")'" class="btn btn-danger">Volver</button>
-
-    </div>*@
-
-    }
-
+    <div class="row">
+        <div>
+            <div class="row">
+                <div class="col-lg-3 text-center">Nombre</div>
+                <div class="col-lg-1 text-center">Calificacion</div>
+                <div class="col-lg-1 text-center">Género</div>
+                <div class="col-lg-1 text-center">Duración</div>
+                <div class="col-lg-3 text-center">Fecha de Carga</div>
+                <div class="col-lg-1 text-center"></div>
+            </div>
+            @foreach (Pelicula pelicula in ViewBag.Peliculas)
+            {
+                <div class="row">
+                    <div class="col-lg-3 text-center">@pelicula.Nombre</div>
+                    <div class="col-lg-1 text-center">@pelicula.IdCalificacion</div>
+                    <div class="col-lg-1 text-center">@pelicula.IdGenero</div>
+                    <div class="col-lg-1 text-center">@pelicula.Duracion</div>
+                    <div class="col-lg-3 text-center">@pelicula.FechaCarga</div>
+                    <div class="col-lg-1 text-center"><a href="./ModificarPelicula?IdPelicula=@pelicula.IdPelicula" class="btn btn-warning">Editar</a></div>
+                </div>
+            }
+        </div>
+        <div class="row text-center">
+            <button type="button" onclick="location.href='@Url.Action("NuevaPelicula", "Administracion")'" class="btn btn-success">Nuevo</button>
+            <button type="button" onclick="location.href='@Url.Action("MenuPrincipal", "Administracion")'" class="btn btn-danger">Volver al Inicio</button>
+        </div>
+    </div>
+}
 
 
 
