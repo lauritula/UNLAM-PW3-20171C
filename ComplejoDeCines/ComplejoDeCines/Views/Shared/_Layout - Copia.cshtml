@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @RenderSection("title")
+    
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/styles.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+    <script language="JavaScript" type="text/javascript" src="~/Content/js/codigojs.js"></script>
+    <script language="JavaScript" type="text/javascript" src="~/Content/js/jquery.bxslider.min.js"></script>
+    <link href="~/Content/css/jquery.bxslider.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+           <div class="container-fluid">
+                <div class="navbar-header">
+                    <p class="navbar-text">Complejo de cines</p>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Inicio", "Home", null, null)</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Películas", "Peliculas", "Administracion", null, null)</li>
+                    <li>@Html.ActionLink("Carteleras", "Carteleras", "Administracion", null, null)</li>
+                    <li>@Html.ActionLink("Sedes", "Sedes", "Administracion", null, null)</li>
+                    <li>@Html.ActionLink("Reservas", "Reportes", "Administracion", null, null)</li>
+                </ul>
+            </div>
+        </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                @RenderSection("header")
+                @RenderSection("body")
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <br />
+        <div id="footer">
+            <div class="container">
+                <p class="text-muted credit">&copy; @DateTime.Now.Year - 1C- Rabuñal / Metallo / Tula / Ayunta</p>
+            </div>
+        </div>
+    </div>
+
+   <!--<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>--> 
+</body>
+</html>

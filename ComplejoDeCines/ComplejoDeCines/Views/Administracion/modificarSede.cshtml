@@ -1,23 +1,61 @@
 ﻿
+@model ComplejoDeCines.Sede
+
 @{
-    ViewBag.Title = "ModificarSede";
+    ViewBag.Title = "EditarSede";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 @section title  {
-    <title>Administración de sedes</title>
+    <title>Editar Sede</title>
 }
 @section header
 {
     <div class="page-header">
-        <h3>Modificar Sede</h3>
+        <h3>Editar informacion de la sede</h3>
     </div>
 }
 @section body
     {
-    <button type="button" onclick="location.href='@Url.Action("CrearSede", "Administracion")'" class="btn btn-danger">Editar</button>
-    <button type="button" onclick="location.href='@Url.Action("Sedes", "Administracion")'" class="btn btn-danger">Volver</button>
+
+    <div class="container">
+
+        @using (Html.BeginForm())
+    {
+            @Html.HiddenFor(model => model.IdSede, (int)ViewBag.IDSede)
+            <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    @Html.TextBoxFor(model => model.Nombre, new { placeholder = "Nombre", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label for="direcion">Direccion</label>
+                    @Html.TextBoxFor(model => model.Direccion, new { placeholder = "Direccion", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label for="precio">Precio Entrada</label>
+                    @Html.TextBoxFor(model => model.PrecioGeneral, new { placeholder = "Precio", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.PrecioGeneral, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="text-center">
+                    <input type="submit" class="btn btn-success" value="Guardar" />
+                    <button type="button" onclick="location.href='@Url.Action("Sedes", "Administracion")'" class="btn btn-danger">Volver</button>
+                </div>
+
+            </div>
+        }
+    </div>
 
 }
+
+
+
 
 
 

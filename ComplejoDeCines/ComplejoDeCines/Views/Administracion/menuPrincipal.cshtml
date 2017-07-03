@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Inicio";
+    Layout = "~/Views/Shared/_Layout - Copia.cshtml";
 }
 
 @section title  {
@@ -9,17 +10,39 @@
 
 @section header
 {
-    <div class="page-header">
-        <h3>Bienvenido administrador</h3>
+    <div class="page-header text-center">
+        <h3>Secciones disponibles</h3>
     </div>
 }
 @section body
     {
-    <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#">Seleccione una opcion</a></li>
-        <li>@Html.ActionLink("Películas", "Peliculas", "Administracion", null, null)</li>
-        <li>@Html.ActionLink("Carteleras", "Carteleras", "Administracion", null, null)</li>
-        <li>@Html.ActionLink("Sedes", "Sedes", "Administracion", null, null)</li>
-        <li>@Html.ActionLink("Reservas", "Reportes", "Administracion", null, null)</li>
-    </ul>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3">
+            <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='@Url.Action("Peliculas", "Administracion")'">
+                <span class="glyphicon glyphicon-film"></span> </br> Peliculas
+            </button>
+        </div>
+        <div class="col-lg-3">
+            <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='@Url.Action("Carteleras", "Administracion")'">
+                <span class="glyphicon glyphicon-calendar"></span> </br> Carteleras
+            </button>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+   </br></br>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-3">
+            <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='@Url.Action("Sedes", "Administracion")'">
+                <span class="glyphicon glyphicon-map-marker"></span> </br> Sedes
+            </button>
+        </div>
+        <div class="col-lg-3">
+            <button type="button" class="btn btn-success btn-lg btn-block" onclick="location.href='@Url.Action("Reportes", "Administracion")'">
+                <span class="glyphicon glyphicon-list-alt"></span> </br> Reportes
+            </button>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
 }

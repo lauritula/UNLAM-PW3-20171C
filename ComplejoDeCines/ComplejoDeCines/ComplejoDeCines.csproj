@@ -248,6 +248,8 @@
     <Content Include="Views\Administracion\EliminarCartelera.cshtml" />
     <Content Include="Views\Administracion\NuevaPelicula.cshtml" />
     <Content Include="Views\Peliculas\Reserva.cshtml" />
+    <Content Include="Views\Shared\_Layout - Copia.cshtml" />
+    <Content Include="Views\Administracion\ModificarPelicula.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
