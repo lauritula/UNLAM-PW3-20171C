@@ -2,42 +2,50 @@
 
 @{
     ViewBag.Title = "Inicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section title  {
-    <title>Administracion</title>
+    <title>Administración</title>
 }
 @section header
             {
-    <div class="page-header">
-        <h3>Bienvenido Administrador</h3>
+    <div class="page-header text-center">
+        <h3>Bienvenido, Administrador!</h3>
+        <h5>Por favor, identifíquese para continuar</h5>
     </div>
 }
 @section body
     {
 
+<div class="container">
     @using (Html.BeginForm())
     {
 
-        @Html.AntiForgeryToken() //Para evitar que se envien peticiones POST con datos erroneos
-        <div class="form-group">
-            @Html.LabelFor(modelo => modelo.Usuario, new { @class = "control-label col-sm-2" })
-            <div class="col-sm-4">
-                @Html.TextBoxFor(modelo => modelo.Usuario, new { @class = "form-control" })
+        @Html.AntiForgeryToken()
+        {
+            <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+
+                <div class="form-group">
+                    @Html.Label("Usuario", new { @class = "control-label col-sm-2" })
+                    @Html.TextBoxFor(modelo => modelo.Usuario, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(modelo => modelo.Usuario, null, new { @class = "label label-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Contraseña", new { @class = "control-label col-sm-2" })
+                    @Html.PasswordFor(modelo => modelo.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(modelo => modelo.Password, null, new { @class = "label label-danger" })
+                </div>
+
+                <div class="form-group text-center">
+                    <input type="submit" value="Ingresar" />
+                </div>
+
             </div>
-            @Html.ValidationMessageFor(modelo => modelo.Usuario, null, new { @class = "label label-danger" })
-
-        </div>
-        <div class="form-group">
-            @Html.Label("Contraseña", new { @class = "control-label col-sm-2" })
-            <div class="col-sm-4">
-                @Html.PasswordFor(modelo => modelo.Password, new { @class = "form-control" })
-            </div>
-            @Html.ValidationMessageFor(modelo => modelo.Password, null, new { @class = "label label-danger" })
-
-        </div>
-
-        <div class="form-group">
-            <input type="submit" value="Ingresar" />
-        </div>
+        }
     }
+</div>
+    
 }
+
+

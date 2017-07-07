@@ -23,8 +23,7 @@ namespace ComplejoDeCines.Controllers
             var modelo = new LoginAdministradorModels(); 
             return View(modelo);
         }
-        /*DONE*/[HttpPost]
-        public ActionResult Inicio(LoginAdministradorModels dato)
+        /*DONE*/[HttpPost] public ActionResult Inicio(LoginAdministradorModels dato)
         {
             if (ModelState.IsValid)
             {
@@ -46,7 +45,6 @@ namespace ComplejoDeCines.Controllers
             }
             return View(dato);
         }
-
         /*DONE*/public ActionResult MenuPrincipal()
         {
             if (Session["UserId"] != null)
@@ -59,7 +57,6 @@ namespace ComplejoDeCines.Controllers
                 return RedirectToAction("Inicio", "Administracion");
             }
         }
-        
         /*DONE*/public ActionResult Peliculas()
         {
             if (Session["UserId"] != null)
@@ -74,6 +71,8 @@ namespace ComplejoDeCines.Controllers
                 return RedirectToAction("Inicio", "Administracion");
             }
         }
+
+
         public ActionResult NuevaPelicula() {
             if (Session["UserId"] != null)
             {
@@ -112,8 +111,6 @@ namespace ComplejoDeCines.Controllers
         [HttpPost]
         public ActionResult CrearPelicula(Pelicula p)
         {
-            contexto.Peliculas.Add(p);
-            contexto.SaveChanges();
             return RedirectToAction("Peliculas", "Administracion");
         }
         public ActionResult ModificarPelicula()
@@ -131,14 +128,11 @@ namespace ComplejoDeCines.Controllers
         [HttpPost]
         public ActionResult ModificarPelicula(int idPelicula, Pelicula pelicula)
         {
-            //var sedeToEdit = contexto.Sedes.Where(a => a.IdSede.Equals(idSede)).FirstOrDefault();
-            //TO DO: Asignacion de nuevos valores de la Sede encontrada
-            contexto.SaveChanges();
+
             return RedirectToAction("Sedes", "Administracion");
         }
 
-        /*DONE*/
-        public ActionResult Sedes()
+        /*DONE*/public ActionResult Sedes()
         {
             if (Session["UserId"] != null)
             {
@@ -164,8 +158,7 @@ namespace ComplejoDeCines.Controllers
                 return RedirectToAction("Inicio", "Administracion");
             }
         }
-        /*DONE*/[HttpPost]
-        public ActionResult CrearSede(Sede s)
+        /*DONE*/[HttpPost] public ActionResult CrearSede(Sede s)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -186,7 +179,7 @@ namespace ComplejoDeCines.Controllers
                 return View();
             }
         }
-        public ActionResult ModificarSede(int idSede)
+        /*DONE*/public ActionResult ModificarSede(int idSede)
         {
             if (Session["UserId"] != null)
             {
@@ -200,8 +193,7 @@ namespace ComplejoDeCines.Controllers
                 return RedirectToAction("Inicio", "Administracion");
             }
         }
-        [HttpPost]
-        public ActionResult ModificarSede(Sede Sede)
+        /*DONE*/[HttpPost]public ActionResult ModificarSede(Sede Sede)
         {
             var original = contexto.Sedes.Find(Sede.IdSede);
             original.Nombre = Sede.Nombre;
@@ -210,9 +202,7 @@ namespace ComplejoDeCines.Controllers
             contexto.SaveChanges();
             return RedirectToAction("Sedes", "Administracion");
         }
-
-      
-        
+               
 
         public ActionResult Reportes()
         {
@@ -273,9 +263,6 @@ namespace ComplejoDeCines.Controllers
         [HttpPost]
         public ActionResult ModificarCartelera(int idCartelera, Cartelera Cartelera)
         {
-            var carteleraToEdit = contexto.Carteleras.Where(a => a.IdCartelera.Equals(idCartelera)).FirstOrDefault();
-            //Líneas de edicion de datos de carteleras
-            //contexto.SaveChanges();
             return RedirectToAction("Carteleras", "Administracion");
         }
         public ActionResult EliminarCartelera()
@@ -293,10 +280,14 @@ namespace ComplejoDeCines.Controllers
         [HttpPost]
         public ActionResult EliminarCartelera(int idCartelera)
         {
-            //var carteleraToDelete = contexto.Carteleras.Where(a => a.IdCartelera.Equals(idCartelera)).FirstOrDefault();
-            //contexto.Carteleras.Remove(carteleraToDelete);
-            //contexto.SaveChanges();
             return RedirectToAction("Carteleras", "Administracion");
+        }
+
+        public ActionResult CerrarSesion()
+        {
+            Session.Clear();
+            Session.Abandon();
+            return RedirectToAction("Inicio", "Administracion");
         }
     }
 }
